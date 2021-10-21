@@ -1,0 +1,26 @@
+@charset "utf-8";
+@import "./fonts.scss";
+@import "./styles.scss";
+@import "./modal.scss";
+.dark-theme {
+  &.quiz-page {
+    background-image: url("../images/bkgr_blk.jpg");
+  }
+  &.start-page {
+    background: linear-gradient(298.84deg, #1F1F1F 34.14%, #454545 98.72%);
+  }
+  
+  @import "./darkstyles.scss";
+}
+.light-theme {
+  &.quiz-page {
+    background-image: url("../images/bkgr_wht.png");
+    background-size: auto 100%;
+  }
+  &.start-page {
+    background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);
+  }
+
+  background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);
+  @import "./lightstyles.scss";
+}

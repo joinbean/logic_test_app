@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+$font-color-dark: #FFFFFF;
+$progress-background-dark: #A9A9A9;
+$progress-bar-dark: #FFFFFF;
+
+.big-heading {
+  color: $font-color-dark;
+}
+
+h3 {
+  color: $font-color-dark;
+}
+
+.burger {
+  button,svg,path {
+    stroke: $font-color-dark;
+    fill: $font-color-dark;
+  }
+}
+
+.breadcrumbs {
+  .top {
+    .numbers {
+      h3 {
+        color: $font-color-dark;
+      }
+    }
+    .buttons {
+      svg,path {
+        stroke: $font-color-dark;
+        fill: $font-color-dark;
+      }
+    }
+  }
+  .bottom {
+    .progress-container {
+      background: $progress-background-dark;
+      .progress {
+        background: $progress-bar-dark;
+      }
+    }
+  }
+}
+
+// Modal
+.btn-rect {
+  svg {
+    path {
+      fill: #FFFFFF;
+    }
+  }
+  &.active {
+    background-color: #FFFFFF;
+    svg path {
+      fill: #494949;
+    }
+  }
+}
+
+.btn-group {
+  button {
+    background: linear-gradient(186.09deg, rgba(56, 56, 56, 0.32) 2.03%, rgba(4, 4, 4, 0.2) 97.5%);    color: #FFFFFF; /* White text */
+    .btn-rect {
+      color: #FFFFFF;
+      &.active {
+        color: #494949;
+      }
+    }
+  }
+}
+
+.modal-default-button {
+  background: linear-gradient(186.09deg, rgba(56, 56, 56, 0.32) 2.03%, rgba(4, 4, 4, 0.2) 97.5%);    color: #FFFFFF; /* White text */
+}
+
+.modal-container {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}

@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+$font-color-light: #494949;
+$progress-background-light: #A9A9A9;
+$progress-bar-light: #494949;
+
+.big-heading {
+  color: $font-color-light;
+}
+
+.burger {
+  button {
+    svg {
+      path {
+        fill: #494949;
+      }
+    }
+  }
+}
+
+// Quiz Page
+.breadcrumbs {
+  .top {
+    .numbers {
+      h3 {
+        color: $font-color-light;
+      }
+    }
+  }
+  .bottom {
+    .progress-container {
+      background: $progress-background-light;
+      .progress {
+        background: $progress-bar-light;
+      }
+    }
+  }
+}
+
+// Modal
+.btn-rect {
+  svg {
+    path {
+      fill: #FFFFFF;
+    }
+  }
+  &.active {
+    background-color: #FFFFFF;
+    svg path {
+      fill: #494949;
+    }
+  }
+}
+
+.btn-group {
+  button {
+    background: linear-gradient(186.09deg, rgba(56, 56, 56, 0.32) 2.03%, rgba(4, 4, 4, 0.2) 97.5%);
+    color: #FFFFFF; /* White text */
+    .btn-rect {
+      color: #FFFFFF;
+      &.active {
+        color: #494949;
+      }
+    }
+  }
+}
+
+.modal-default-button {
+  background: linear-gradient(186.09deg, rgba(56, 56, 56, 0.32) 2.03%, rgba(4, 4, 4, 0.2) 97.5%);
+}
+
+.modal-container {
+  background: linear-gradient(180deg, rgba(153, 153, 153, 0.32) 0%, rgba(16, 16, 16, 0.2) 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+}
