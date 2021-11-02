@@ -29,9 +29,6 @@
 
 <script>
 export default {
-  mounted () {
-    this.$store.commit('setQuizMax', 10)
-  },
   data: () => ({
     current: 1,
     all: 15
@@ -43,6 +40,9 @@ export default {
     progress () {
       return ((100 / this.$store.getters.getQuizMax) * this.$store.getters.getQuizCur) + '%'
     }
+  },
+  mounted () {
+    this.$store.commit('setQuizMax', 1)
   },
   methods: {
     increment () {

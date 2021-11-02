@@ -78,3 +78,33 @@ h3 {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
 }
+
+// Quiz
+.go-on-button {
+  button {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.2) 100%);
+    color: $font-color-dark;
+  }
+}
+
+// Finish
+.text-section {
+  .content {
+    h1 {
+      color: $font-color-dark;
+    }
+    h4 {
+      color: $font-color-dark;
+    }
+    p {
+      color: $font-color-dark;
+    }
+  }
+  .button-section {
+    button {
+      color: #FFFFFF;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.2) 100%);
+      backdrop-filter: blur(4px);
+    }
+  }
+}

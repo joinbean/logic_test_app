@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>
-      {{ currentTime }}
+      {{ getCurrentTime() }}
     </h3>
   </div>
 </template>
@@ -10,13 +10,17 @@
 export default {
   data: () => ({
     interval: '',
-    time: 15,
+    time: 30,
     currentTime: ''
   }),
   created () {
-    this.interval = setInterval(() => this.updateCurrentTime(), 1000)
+    this.$store.commit('createClockInterval')
+    // this.interval = setInterval(() => this.updateCurrentTime(), 1000)
   },
   methods: {
+    getCurrentTime () {
+      return this.$store.getters.getCurrentTime
+    },
     updateCurrentTime () {
       let minutes = parseInt(this.time / 60, 10)
       let seconds = parseInt(this.time % 60, 10)
@@ -25,6 +29,7 @@ export default {
       seconds = seconds < 10 ? '0' + seconds : seconds
 
       this.currentTime = minutes + ':' + seconds
+      this.$store.commit('setResultTime', this.time)
 
       if (--this.time < 0) {
         this.cancel()
@@ -32,6 +37,7 @@ export default {
     },
     cancel () {
       clearInterval(this.interval)
+      this.quit()
     }
   }
 }

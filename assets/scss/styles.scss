@@ -92,13 +92,18 @@
   }
 }
 
-// Start
-.big-heading {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 250px;
-  line-height: 370px;
+// Register
+
+.register-section {
+  padding-top: 200px;
+  .form {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 
 // Quiz
@@ -147,6 +152,119 @@
           height: 100%;
         }
       }
+    }
+  }
+  .go-on-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    button {
+      font-family: 'Oswald';
+      font-style: normal;
+      font-weight: normal;
+      font-size: 32px;
+      line-height: 40px;
+      width: 200px;
+      height: 50px;
+      backdrop-filter: blur(4px);
+      border-radius: 10px;
+    }
+  }
+}
+
+// Finish
+.text-section,.finish {
+  padding-top: 260px;
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    h1 {
+      font-family: 'Oswald';
+      font-weight: 500;
+      font-size: 250px;
+      font-style: normal;
+      line-height: 370px;
+      margin: 0;
+    }
+    p {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 28px;
+      margin: 0;
+    }
+  }
+  .button-section {
+    float: right;
+    padding-right: 5%;
+    button {
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      font-family: 'Oswald';
+      font-weight: 400;
+      font-size: 32px;
+      font-style: normal;
+      line-height: 45px;
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+// Start
+.text-section,.start {
+  padding-top: 0px;
+  .content {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-left: 5%;
+    h1 {
+      font-family: 'Oswald';
+      font-weight: 500;
+      font-size: 250px;
+      font-style: normal;
+      line-height: 370px;
+      margin: 0;
+    }
+    h4 {
+      font-family: Oswald;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 36px;
+      line-height: 53px;
+    }
+    p {
+      font-family: 'Roboto';
+      font-weight: 400;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 28px;
+      margin: 0;
+      &:last-child {
+        padding-top: 30px;
+      }
+    }
+  }
+  .button-section {
+    float: right;
+    padding-right: 5%;
+    button {
+      width: 200px;
+      height: 50px;
+      border-radius: 10px;
+      padding: 0px;
+      font-family: 'Oswald';
+      font-weight: 400;
+      font-size: 32px;
+      font-style: normal;
+      cursor: pointer;
     }
   }
 }

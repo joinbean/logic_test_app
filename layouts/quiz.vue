@@ -1,6 +1,12 @@
 <template>
   <div class="main quiz-page" :class="{'dark-theme': darkMode, 'light-theme': !darkMode}">
     <div class="navbar">
+      <div class="breadcrumbs">
+        <BreadCrumbs />
+      </div>
+      <div class="timer">
+        <Clock />
+      </div>
       <div class="burger">
         <button @click="showModal = !showModal">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -15,22 +21,30 @@
       :theme="darkMode"
       @close="showModal = false"
       @changeTheme="themeSwitch"
+      @quit="quit"
     />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Default',
   data () {
     return {
       showModal: false,
       darkMode: false
     }
   },
+  created () {
+    this.$nuxt.$on('quit', () => {
+      this.quit()
+    })
+  },
   methods: {
     themeSwitch (value) {
       this.darkMode = value
+    },
+    quit () {
+      console.log(123)
     }
   }
 }

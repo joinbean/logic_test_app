@@ -7,32 +7,40 @@
           class="solution-box"
           @drop="onDrop($event, true)"
           @dragover.prevent
-          @dragenter.prevent>
+          @dragenter.prevent
+        >
           <div
-            class="image-box"
             v-for="image in solution"
             :key="image.id"
-            >
+            class="image-box"
+          >
             <img :src="getImg(image.url)">
           </div>
         </div>
       </div>
       <div class="answer-box">
         <div
-          class="image-box"
-          v-for="image in this.questions[this.question].images"
+          v-for="image in questions[question].images"
           :key="image.id"
+          class="image-box"
           draggable
-          @dragstart="startDrag($event, image)">
-            <img :src="getImg(image.url)" v-if="image.is_answer == false">
+          @dragstart="startDrag($event, image)"
+        >
+          <img v-if="image.is_answer == false" :src="getImg(image.url)">
         </div>
       </div>
+    </div>
+    <div v-if="$store.getters.getQuizMax == $store.getters.getQuizCur" class="go-on-button">
+      <button @click="quit()">
+        Beenden
+      </button>
     </div>
   </section>
 </template>
 
 <script>
 export default {
+  layout: 'quiz',
   middleware: 'authenticated',
   data () {
     return {
@@ -55,11 +63,14 @@ export default {
     }
   },
   async mounted () {
+    this.$store.commit('setQuizCur', 1)
     this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
     const response = await this.$axios.$get('http://127.0.0.1:8000/api/quiz', null)
     this.nodefy(response.data.questions)
     this.questions = response.data.questions
     this.$store.commit('setQuizMax', this.questions.length)
+    this.$store.commit('resetAnswer')
+    this.$store.commit('setResultId', response.data.result_id)
     console.log(response.data)
     this.loaded = true
   },
@@ -90,9 +101,24 @@ export default {
       const itemID = evt.dataTransfer.getData('itemID')
       const item = this.questions[this.question].images.find(x => x.id === parseInt(itemID))
       item.is_answer = state
+      this.$store.commit('addResultQuestion', { question: this.questions[this.question].id, answer: item.id })
+      console.log(this.$store.getters.getResult)
     },
     getImg (img) {
       return this.image_url + img + '.gif'
+    },
+    quit () {
+      this.$store.commit('commitQuiz')
+      this.$store.commit('cancelClockInterval')
+      this.$store.commit('logout')
+      // this.commiting = true
+      // this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
+      // const response = await this.$axios.$post('http://127.0.0.1:8000/api/quiz', this.$store.getters.getResult)
+      // this.$store.commit('logout')
+      // this.$store.commit('cancelClockInterval')
+      // console.log(response)
+      // this.commiting = false
+      // this.$router.push('/finish')
     }
   }
 }

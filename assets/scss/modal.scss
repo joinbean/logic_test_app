@@ -80,6 +80,25 @@
   }
 }
 
+.btn-solo {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  button {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 40px;
+    width: 200px;
+    height: 50px;
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+  }
+}
+
 .modal-mask {
   position: fixed;
   z-index: 9998;

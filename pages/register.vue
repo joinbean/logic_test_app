@@ -1,15 +1,28 @@
 <template>
-  <section class="section">
-    <b-input v-model="name" />
-    <b-input v-model="email" />
-    <b-button @click="register">
-      Register
-    </b-button>
+  <section class="section register-section">
+    <div class="form">
+      <b-field label="Name" v-show="!error">
+        <b-input v-model="name" />
+      </b-field>
+      <b-field label="Name" message="Enter a name" type="is-danger" v-show="error">
+        <b-input v-model="name" />
+      </b-field>
+      <b-field label="Email" v-show="!error">
+        <b-input v-model="email" />
+      </b-field>
+      <b-field label="Email" message="Enter valid and unique mail" type="is-danger" v-show="error">
+        <b-input v-model="email" />
+      </b-field>
+      <b-button @click="register">
+        Register
+      </b-button>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
+  middleware: 'notAuthenticated',
   data () {
     return {
       email: '',
@@ -35,6 +48,7 @@ export default {
       } catch (error) {
         switch (error.response.status) {
           case 422:
+            this.error = 'Email must be unique'
             console.log('Email must be unique')
             break
           default:

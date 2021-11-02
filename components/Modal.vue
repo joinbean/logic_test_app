@@ -34,16 +34,21 @@
               </div>
               <div class="btn-group">
                 <button @click="play()">
-                  <div class="btn-rect" :class="{ active: audioPlay }">
+                  <div class="btn-rect" :class="{ active: $store.getters.getAudioPlay }">
                     On
                   </div>
                 </button>
                 <button @click="pause()">
-                  <div class="btn-rect" :class="{ active: !audioPlay }">
+                  <div class="btn-rect" :class="{ active: !$store.getters.getAudioPlay }">
                     Off
                   </div>
                 </button>
                 <h4>Ton an/aus</h4>
+              </div>
+              <div class="btn-solo" v-show="showQuit">
+                <button @click="quit()">
+                  Beenden
+                </button>
               </div>
             </slot>
           </div>
@@ -69,8 +74,13 @@ export default {
       interval: ''
     }
   },
+  computed: {
+    showQuit () {
+      return this.$nuxt.$route.path === '/quiz'
+    }
+  },
   mounted () {
-    this.audio = new Audio(require('assets/audio/Sonic.mp3'))
+    this.$store.commit('setAudio', new Audio(require('assets/audio/Sonic.mp3')))
   },
   methods: {
     changeToDark () {
@@ -80,26 +90,36 @@ export default {
       this.$emit('changeTheme', true)
     },
     play () {
-      this.audio.loop = true
-      this.audio.play()
-      this.audioPlay = true
+      this.$store.getters.getAudio.loop = true
+      this.$store.getters.getAudio.play()
+      this.$store.commit('setAudioPlay', true)
       this.createSpeed()
     },
     pause () {
-      this.audio.loop = false
-      this.audio.pause()
-      this.audioPlay = false
-      this.audio.playbackRate = 1
+      this.$store.getters.getAudio.loop = false
+      this.$store.getters.getAudio.pause()
+      this.$store.commit('setAudioPlay', false)
+      this.$store.getters.getAudio.playbackRate = 1
       this.destroySpeed()
     },
     createSpeed () {
       const self = this
       this.interval = setInterval(() => {
-        self.audio.playbackRate = self.audio.playbackRate * 1.1
+        self.$store.getters.getAudio.playbackRate = self.$store.getters.getAudio.playbackRate * 1.1
       }, 2000)
     },
     destroySpeed () {
       clearInterval(this.interval)
+    },
+    quit () {
+      this.$store.commit('commitQuiz')
+      this.$store.commit('cancelClockInterval')
+      this.$store.commit('logout')
+    }
+  },
+  watch: {
+    $route () {
+      console.log(this.$nuxt.$route.path)
     }
   }
 }
