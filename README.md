@@ -17,6 +17,10 @@ $ yarn start
 $ yarn generate
 ```
 
+## To-Do
+
+- [ ] Have printable results page per user
+
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
 ## Special Directories
