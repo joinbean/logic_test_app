@@ -105,7 +105,7 @@ export default {
       console.log(this.$store.getters.getResult)
     },
     getImg (img) {
-      return this.image_url + img + '.gif'
+      return this.image_url + img + '.svg'
     },
     quit () {
       this.$store.commit('commitQuiz')

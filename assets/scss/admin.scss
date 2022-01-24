@@ -1,7 +1,213 @@
-.scroll-box {
-  width: 750px;
-  height: 800px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
-  backdrop-filter: blur(8px);
-  border-radius: 45px;
+.admin {
+  padding-top: 100px;
+  overflow: hidden;
+  .content {
+    display: flex;
+    flex-direction: row;
+    .single-view {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      button {
+        width: 150px;
+        height: 50px;
+
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+        backdrop-filter: blur(8px);
+        /* Note: backdrop-filter has minimal browser support */
+
+        border-radius: 45px;
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 36px;
+      }
+      p {
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        line-height: 53px;
+      }
+    }
+  }
+  .background-box {
+    position: absolute;
+    width: 750px;
+    height: 800px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+    backdrop-filter: blur(8px);
+    border-radius: 45px;
+  }
+  .scroll-box {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 10;
+    padding: 30px 50px 30px 30px;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 26px;
+    padding-left: 10px;
+  }
+  /* Scrollbar - Handle */
+  ::-webkit-scrollbar-thumb {
+    /* 8px to side */
+    border: 8px solid transparent;
+    background-clip: padding-box;
+    border-radius: 20px;
+    background-color: #A9A9A9;
+  }
+  ::-webkit-scrollbar-track {
+    border: 8px solid transparent;
+    background-clip: padding-box;
+    border-radius: 18px;
+    background-color: #FFFFFF;
+  }
+
+  .student-card {
+    display: flex;
+    flex-direction: row;
+    .student-image {
+      width: 150px;
+      height: 150px;
+
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+      backdrop-filter: blur(8px);
+      /* Note: backdrop-filter has minimal browser support */
+
+      border-radius: 45px;
+
+      .student-icon {
+        margin-left: 51px;
+        margin-top: 51px;
+      }
+    }
+    .student-info {
+      flex-grow: 1;
+      margin-left: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      p {
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 36px;
+        margin-bottom: 0;
+      }
+      .progress-bar {
+        background-color: #A9A9A9;
+        border-radius: 4px;
+        /* (height of inner div) / 2 + padding */
+        padding: 0px;
+        .bar {
+          background-color: #6AD187;
+          /* Adjust with JavaScript */
+          height: 5px;
+          border-radius: 4px;
+        }
+      }
+      .bottom-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        button {
+          width: 150px;
+          height: 50px;
+
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+          backdrop-filter: blur(8px);
+          /* Note: backdrop-filter has minimal browser support */
+
+          border-radius: 45px;
+          font-family: Oswald;
+          font-style: normal;
+          font-weight: 300;
+          font-size: 24px;
+          line-height: 36px;
+        }
+        p {
+          font-family: Oswald;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 36px;
+          line-height: 53px;
+        }
+      }
+    }
+
+  }
+
+  .profile-image {
+    position: absolute;
+    top: 75px;
+    width: 150px;
+    height: 150px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+    backdrop-filter: blur(8px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 45px;
+
+    .student-icon {
+      margin-left: 51px;
+      margin-top: 51px;
+    }
+  }
+  .single-box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 750px;
+    height: 800px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+    backdrop-filter: blur(8px);
+    border-radius: 45px;
+    .block-section {
+      padding-top: 56px;
+      padding-left: 73px;
+      padding-right: 73px;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .block:first-child {
+        margin-left: 0px;
+      }
+      .block:nth-child(6n - 5) {
+        margin-left: 0px;
+      }
+      .block {
+        margin-left: 20px;
+        width: 84px;
+        height: 84px;
+        background: #6AD187;
+        backdrop-filter: blur(8px);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        h3 {
+          // width: 15px;
+          // height: 53px;;
+
+          font-family: Oswald;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 36px;
+          // line-height: 53px;
+          
+
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
 }

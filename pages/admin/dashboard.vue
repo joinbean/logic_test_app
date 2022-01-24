@@ -1,12 +1,14 @@
 <template>
-  <section>
+  <section class="section admin dashboard-section">
     <div class="content">
+      <div class="background-box"></div>
       <div class="scroll-box">
-        <div v-for="item in items" :key="item.id">
-          {{ item }}
+        <div v-for="item in items" :key="item.id" class="element">
+          <StudentCard :student="item" icon="car" :total="2" :points="1" />
         </div>
       </div>
       <div class="single-view">
+        <button @click="logout()">Logout</button>
       </div>
     </div>
   </section>
@@ -14,8 +16,9 @@
 
 <script>
 export default {
+  middleware: 'authenticated',
   data: () => ({
-    items: ''
+    items: []
   }),
   async mounted () {
     console.log(this.$store.getters.getToken, this.$store.getters.getType)
@@ -24,7 +27,14 @@ export default {
     const response = await this.$axios.$post('http://127.0.0.1:8000/api/admin/quizzes', null)
 
     console.log(response.data)
-    this.items = response
+    this.items = response.data
+    this.$store.commit('setStudent', null)
+  },
+  methods: {
+    logout () {
+      this.$store.commit('logout')
+      this.$router.push('/admin/login')
+    }
   }
 }
 </script>

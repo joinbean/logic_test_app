@@ -1,6 +1,6 @@
 export const state = () => ({
   interval: '',
-  time: 30,
+  time: 2100,
   currentTime: ''
 })
 

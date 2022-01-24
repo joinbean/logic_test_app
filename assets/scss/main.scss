@@ -12,6 +12,7 @@
   }
   
   @import "./darkstyles.scss";
+  @import "./admindarkstyles.scss";
 }
 .light-theme {
   &.quiz-page {
@@ -24,4 +25,5 @@
 
   background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);
   @import "./lightstyles.scss";
+  @import "./adminlightstyles.scss";
 }

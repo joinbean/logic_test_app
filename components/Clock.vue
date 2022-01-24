@@ -10,7 +10,7 @@
 export default {
   data: () => ({
     interval: '',
-    time: 30,
+    time: 2100,
     currentTime: ''
   }),
   created () {

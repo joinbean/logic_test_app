@@ -4,6 +4,7 @@ export const state = () => ({
   user: null,
   token: null,
   type: null,
+  status: null,
   quiz: null,
   answer:
   {
@@ -14,10 +15,14 @@ export const state = () => ({
     }
   },
   interval: '',
-  time: 30,
+  time: 2100,
   currentTime: '',
   audio: '',
-  audioPlay: false
+  audioPlay: false,
+  student: null,
+  questionId: null,
+  adminQuiz: null,
+  currentQuestion: 5
 })
 
 export const mutations = {
@@ -43,10 +48,14 @@ export const mutations = {
   setType (state, type) {
     state.type = type
   },
+  setStatus (state, status) {
+    state.status = status
+  },
   logout (state) {
     state.user = null
     state.token = null
     state.type = null
+    state.status = null
   },
   setQuiz (state, quiz) {
     state.quiz = quiz
@@ -103,7 +112,7 @@ export const mutations = {
   },
   cancelClockInterval (state) {
     clearInterval(state.interval)
-    state.time = 30
+    state.time = 2100
     state.interval = ''
     state.currentTime = ''
   },
@@ -119,6 +128,18 @@ export const mutations = {
   },
   setAudioPlay (state, audio) {
     state.audioPlay = audio
+  },
+  setStudent (state, student) {
+    state.student = student
+  },
+  setQuestion (state, questionId) {
+    state.questionId = questionId
+  },
+  setAdminQuiz (state, quiz) {
+    state.adminQuiz = quiz
+  },
+  setCurrentQuestion (state, curQuestion) {
+    state.currentQuestion = curQuestion
   }
 }
 
@@ -129,10 +150,15 @@ export const getters = {
   getUser: state => state.user,
   getToken: state => state.token,
   getType: state => state.type,
+  getStatus: state => state.status,
   getQuiz: state => state.quiz,
   getTime: state => state.answer.time,
   getResult: state => state.answer,
   getCurrentTime: state => state.currentTime,
   getAudio: state => state.audio,
-  getAudioPlay: state => state.audioPlay
+  getAudioPlay: state => state.audioPlay,
+  getStudent: state => state.student,
+  getQuestionId: state => state.questionId,
+  getAdminQuiz: state => state.adminQuiz,
+  getCurrentQuestion: state => state.currentQuestion
 }

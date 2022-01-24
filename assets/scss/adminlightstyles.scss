@@ -1,0 +1,67 @@
+.admin {
+  .background-box {
+    background: linear-gradient(180deg, rgba(159, 159, 159, 0.32) 3.23%, rgba(0, 0, 0, 0.2) 103.23%);
+  }
+  .scroll-box {
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+  }
+  /* Scrollbar - Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: #A9A9A9;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #FFFFFF;
+  }
+
+  .student-card {
+    .student-image {
+      background: linear-gradient(180deg, rgba(153, 153, 153, 0.32) 0%, rgba(16, 16, 16, 0.2) 100%);
+      .student-icon {
+      }
+    }
+    .student-info {
+      p {
+        color: #494949;
+      }
+      .progress-bar {
+        background-color: #A9A9A9;
+        .bar {
+          background-color: #6AD187;
+        }
+      }
+      .bottom-group {
+        button {
+          background: linear-gradient(180deg, rgba(153, 153, 153, 0.32) 0%, rgba(16, 16, 16, 0.2) 100%);
+          color: #494949;
+        }
+        p {
+          color: #494949;
+        }
+      }
+    }
+  }
+
+  .profile-image {
+    background: linear-gradient(180deg, rgba(153, 153, 153, 0.32) 0%, rgba(16, 16, 16, 0.2) 100%);
+    .student-icon {
+    }
+  }
+  .single-box {
+    background: linear-gradient(180deg, rgba(153, 153, 153, 0.32) 0%, rgba(16, 16, 16, 0.2) 100%);
+    .block-section {
+      .block:first-child {
+      }
+      .block:nth-child(6n - 5) {
+      }
+      .block {
+        background: #6AD187;
+        h3 {
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+}

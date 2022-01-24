@@ -1,20 +1,37 @@
 <template>
-  <section style="margin-top:400px">
-    <input v-bind="email" />
-    <input v-bind="password" />
-    <button @click="login">login</button>
+  <section class="section register-section">
+    <div class="form">
+      <b-field label="Email" v-show="!error">
+        <b-input v-model="email" />
+      </b-field>
+      <b-field label="Email" message="Enter valid and unique mail" type="is-danger" v-show="error">
+        <b-input v-model="email" />
+      </b-field>
+      <b-field label="Password" v-show="!error">
+        <b-input v-model="password" />
+      </b-field>
+      <b-field label="Password" message="Enter a password" type="is-danger" v-show="error">
+        <b-input v-model="password" />
+      </b-field>
+      <b-button @click="login">
+        Login
+      </b-button>
+    </div>
   </section>
 </template>
 
 <script>
 export default {
+  middleware: 'notAuthenticated',
   data: () => ({
     email: '',
-    password: ''
+    password: '',
+    error: false
   }),
   methods: {
     async login () {
       const instance = this
+      console.log(instance.email, instance.password)
       try {
         const response = await this.$axios.$post('http://127.0.0.1:8000/api/admin/login', null, {
           params: { email: 'leitunginformatik@twofold.swiss', password: 'Passwort' }
@@ -24,8 +41,10 @@ export default {
         this.$store.commit('setToken', response.access_token)
         this.$store.commit('setType', response.token_type)
         this.$store.commit('setUser', instance.email)
+        this.$store.commit('setStatus', 'Admin')
         this.$router.push('dashboard')
       } catch (error) {
+        this.error = true
         console.log(error)
       }
     }

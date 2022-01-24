@@ -53,6 +53,9 @@ export default {
 
   components: {
     Card
+  },
+  mounted () {
+    this.$router.push('/register')
   }
 }
 </script>

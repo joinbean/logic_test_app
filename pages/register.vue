@@ -44,6 +44,7 @@ export default {
         this.$store.commit('setToken', response.access_token)
         this.$store.commit('setType', response.token_type)
         this.$store.commit('setUser', instance.email)
+        this.$store.commit('setStatus', 'User')
         this.$router.push('start')
       } catch (error) {
         switch (error.response.status) {
@@ -56,7 +57,7 @@ export default {
             break
         }
         this.error = true
-        // console.log(error)
+        console.log(error)
       }
     }
   }
