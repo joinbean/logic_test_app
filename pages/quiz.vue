@@ -44,7 +44,7 @@ export default {
   middleware: 'authenticated',
   data () {
     return {
-      image_url: 'http://127.0.0.1:8000/images/',
+      image_url: 'https://twofold.academy/logic/public/images/',
       questions: '',
       answers: [],
       loaded: false,
@@ -65,7 +65,7 @@ export default {
   async mounted () {
     this.$store.commit('setQuizCur', 1)
     this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
-    const response = await this.$axios.$get('http://127.0.0.1:8000/api/quiz', null)
+    const response = await this.$axios.$get('https://twofold.academy/logic/public/api/quiz', null)
     this.nodefy(response.data.questions)
     this.questions = response.data.questions
     this.$store.commit('setQuizMax', this.questions.length)

@@ -35,7 +35,7 @@ export default {
 
     this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
     // this.$axios.setToken('113|NO6f32QeGhabKkdkqDDK5dhteklnwAKV9agmwjQn', 'Bearer', ['post', 'get'])
-    const response = await this.$axios.$get('http://127.0.0.1:8000/api/quiz/' + this.student.quiz_id, null)
+    const response = await this.$axios.$get('https://twofold.academy/logic/public/api/quiz/' + this.student.quiz_id, null)
 
     this.$store.commit('setAdminQuiz', response)
     console.log(response)
@@ -61,7 +61,6 @@ export default {
   },
   methods: {
     goToSolution (questionId) {
-      console.log(questionId)
       this.$store.commit('setCurrentQuestion', questionId)
       this.$store.commit('setStudent', this.student)
       this.$store.commit('setQuestion', this.questionId)

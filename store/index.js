@@ -119,7 +119,7 @@ export const mutations = {
   async commitQuiz (state) {
     this.commit('setResultTime', state.time)
     this.$axios.setToken(state.token, state.type, ['post', 'get'])
-    const response = await this.$axios.$post('http://127.0.0.1:8000/api/quiz', state.answer)
+    const response = await this.$axios.$post('https://twofold.academy/logic/public/api/quiz', state.answer)
     console.log(response)
     this.$router.push('/finish')
   },

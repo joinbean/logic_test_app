@@ -36,7 +36,7 @@ export default {
     async register () {
       const instance = this
       try {
-        const response = await this.$axios.$post('http://127.0.0.1:8000/api/register', null, {
+        const response = await this.$axios.$post('https://twofold.academy/logic/public/api/register', null, {
           params: { name: instance.name, email: instance.email }
         })
         console.log(response.access_token)

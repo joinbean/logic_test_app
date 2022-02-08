@@ -24,7 +24,7 @@ export default {
     console.log(this.$store.getters.getToken, this.$store.getters.getType)
     this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
     // this.$axios.setToken('113|NO6f32QeGhabKkdkqDDK5dhteklnwAKV9agmwjQn', 'Bearer', ['post', 'get'])
-    const response = await this.$axios.$post('http://127.0.0.1:8000/api/admin/quizzes', null)
+    const response = await this.$axios.$post('https://twofold.academy/logic/public/api/admin/quizzes', null)
 
     console.log(response.data)
     this.items = response.data

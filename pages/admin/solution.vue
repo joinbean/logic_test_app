@@ -11,7 +11,7 @@
             :key="image.id"
             class="image-box"
           >
-            <img :src="getImg(image.url)">
+            <img v-if="image.id != null" :src="getImg(image.url)">
             <div v-if="image.id == currentSolution[0].solution" class="overlay true"></div>
             <div v-else class="overlay false"></div>
           </div>
@@ -41,7 +41,7 @@
 export default {
   middleware: 'authenticated',
   data: () => ({
-    image_url: 'http://127.0.0.1:8000/images/',
+    image_url: 'https://twofold.academy/logic/public/images/',
     student: null,
     quiz: null,
     question: null,
@@ -71,6 +71,10 @@ export default {
     currentAnswer () {
       const qst = this.questions.filter(question => question.id === this.question)
       const reslt = this.student.answers.filter(question => question.question_id === this.question)
+      if (!reslt.length) {
+        console.log('array is empty')
+        return [{ id: null }]
+      }
       return qst[0].images.filter(question => question.id === reslt[0].answer)
     },
 
