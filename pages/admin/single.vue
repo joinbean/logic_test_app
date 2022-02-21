@@ -2,13 +2,14 @@
   <section class="section admin single">
     <div class="profile-image">
       <b-icon
-        icon="car"
+        icon="account"
         size="is-large"
         type="is-primary"
         class="student-icon"
       />
     </div>
-    <div class="single-box">
+    <div class="background-box single"></div>
+    <div class="scroll-box single">
       <div v-if="student" class="block-section">
         <div
         v-for="block in blocks"
@@ -20,7 +21,7 @@
         </div>
       </div>
     </div>
-    <button @click="back()">Back</button>
+    <button @click="back()" class="back-button">Back</button>
   </section>
 </template>
 

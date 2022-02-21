@@ -4,7 +4,7 @@
       <b-field label="Email" v-show="!error">
         <b-input v-model="email" />
       </b-field>
-      <b-field label="Email" message="Enter valid and unique mail" type="is-danger" v-show="error">
+      <b-field label="Email" message="Enter valid mail" type="is-danger" v-show="error">
         <b-input v-model="email" />
       </b-field>
       <b-field label="Password" v-show="!error">
@@ -34,7 +34,7 @@ export default {
       console.log(instance.email, instance.password)
       try {
         const response = await this.$axios.$post('http://127.0.0.1:8000/api/admin/login', null, {
-          params: { email: 'leitunginformatik@twofold.swiss', password: 'Passwort' }
+          params: { email: 'leitunginformatik@twofold.swiss', password: 'Password' }
         })
         console.log(response.access_token)
         console.log(response.token_type)

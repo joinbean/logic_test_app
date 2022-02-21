@@ -4,7 +4,7 @@
       <div class="background-box"></div>
       <div class="scroll-box">
         <div v-for="item in items" :key="item.id" class="element">
-          <StudentCard :student="item" icon="car" :total="2" :points="1" />
+          <StudentCard :student="item" icon="account" :total="2" :points="1" />
         </div>
       </div>
       <div class="single-view">
