@@ -1,5 +1,5 @@
 <template>
-  <section v-if="loaded" class="section quiz-section">
+  <section v-if="loaded" class="section quiz-section admin">
     <div class="content">
       <div class="question-box">
         <img :src="getImg(currentBigImage[0]['url'])">
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <button @click="back()">Back</button>
+    <button @click="back()" class="back-button">Back</button>
   </section>
 </template>
 

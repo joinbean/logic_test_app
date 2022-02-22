@@ -2,12 +2,14 @@
   <div class="column">
     <div class="student-card">
       <div class="student-image">
-        <b-icon
+        <img src="https://img.icons8.com/ios-glyphs/90/000000/user--v1.png"/>
+        <!-- <b-icon
           :icon="icon"
           size="is-large"
-          type="is-primary"
+          custom-class="icon-4x"
+          type="is-dark"
           class="student-icon"
-        />
+        /> -->
       </div>
       <div class="student-info">
         <p>{{ student.name }}</p>

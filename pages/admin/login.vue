@@ -34,7 +34,7 @@ export default {
       console.log(instance.email, instance.password)
       try {
         const response = await this.$axios.$post('https://twofold.academy/logic/public/api/admin/login', null, {
-          params: { email: 'leitunginformatik@twofold.swiss', password: 'Passwort' }
+          params: { email: 'leitunginformatik@twofold.swiss', password: 'Password' }
         })
         console.log(response.access_token)
         console.log(response.token_type)

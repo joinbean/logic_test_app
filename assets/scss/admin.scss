@@ -40,8 +40,15 @@
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
     backdrop-filter: blur(8px);
     border-radius: 45px;
+    &.single {
+      margin-left: calc((100vw - 890px) / 2);
+      margin-right: calc((100vw - 890px) / 2);
+    }
   }
   .scroll-box {
+    &.dash {
+      width: 780px;
+    }
     position: relative;
     width: 800px;
     height: 800px;
@@ -49,6 +56,50 @@
     overflow-x: hidden;
     z-index: 10;
     padding: 30px 50px 30px 30px;
+    &.single {
+      margin-left: auto;
+      margin-right: auto;
+      .block-section {
+        padding-top: 56px;
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-bottom: 56px;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        .block:first-child {
+          margin-left: 0px;
+        }
+        .block:nth-child(6n - 5) {
+          margin-left: 0px;
+        }
+        .block {
+          margin-left: 20px;
+          width: 84px;
+          height: 84px;
+          background: #6AD187;
+          backdrop-filter: blur(8px);
+          border-radius: 30px;
+          display: flex;
+          align-items: center;
+          text-align: center;
+          justify-content: center;
+          h3 {
+            // width: 15px;
+            // height: 53px;;
+  
+            font-family: Oswald;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            // line-height: 53px;
+            
+  
+            color: #FFFFFF;
+          }
+        }
+      }
+    }
   }
 
   /* Scrollbar */
@@ -83,12 +134,11 @@
       /* Note: backdrop-filter has minimal browser support */
 
       border-radius: 45px;
-
-      .student-icon {
-        margin-left: 51px;
-        margin-top: 51px;
+      padding-left: 30px;
+      padding-top:30px;
       }
-    }
+      
+    
     .student-info {
       flex-grow: 1;
       margin-left: 50px;
@@ -145,6 +195,25 @@
 
   }
 
+  .back-button {
+    position: absolute;
+    top: 20px;
+    width: 150px;
+    height: 50px;
+
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.32) 3.23%, rgba(255, 255, 255, 0.2) 103.23%);
+    backdrop-filter: blur(8px);
+    /* Note: backdrop-filter has minimal browser support */
+
+    border-radius: 45px;
+    font-family: Oswald;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 36px;
+    z-index: 99;
+  }
+
   .profile-image {
     position: absolute;
     top: 75px;
@@ -156,6 +225,9 @@
     /* Note: backdrop-filter has minimal browser support */
 
     border-radius: 45px;
+
+    padding-left: 30px;
+      padding-top:30px;
 
     .student-icon {
       margin-left: 51px;

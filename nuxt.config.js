@@ -63,7 +63,7 @@ export default {
   },
 
   axios: {
-    baseURL: 'http://127.0.0.1:8000/api',
+    baseURL: 'https://twofold.academy/logic/public/api',
     proxyHeaders: false,
     credentials: false
   },

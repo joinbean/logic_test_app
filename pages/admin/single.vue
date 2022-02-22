@@ -1,14 +1,17 @@
 <template>
   <section class="section admin single">
     <div class="profile-image">
-      <b-icon
-        icon="car"
+        <img src="https://img.icons8.com/ios-glyphs/90/000000/user--v1.png"/>
+      <!-- <b-icon
+        icon="account"
         size="is-large"
         type="is-primary"
         class="student-icon"
-      />
+        style="color:black"
+      /> -->
     </div>
-    <div class="single-box">
+    <div class="background-box single"></div>
+    <div class="scroll-box single">
       <div v-if="student" class="block-section">
         <div
         v-for="block in blocks"
@@ -18,9 +21,10 @@
         :style="block.right ?{'background' : '#6AD187'} : {'background' : '#d1716a'}">
           <h3>{{ block.id }}</h3>
         </div>
+        <div class="block" style="background:transparent"></div>
       </div>
     </div>
-    <button @click="back()">Back</button>
+    <button @click="back()" class="back-button">Back</button>
   </section>
 </template>
 
