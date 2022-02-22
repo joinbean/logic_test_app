@@ -111,14 +111,6 @@ export default {
       this.$store.commit('commitQuiz')
       this.$store.commit('cancelClockInterval')
       this.$store.commit('logout')
-      // this.commiting = true
-      // this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
-      // const response = await this.$axios.$post('http://127.0.0.1:8000/api/quiz', this.$store.getters.getResult)
-      // this.$store.commit('logout')
-      // this.$store.commit('cancelClockInterval')
-      // console.log(response)
-      // this.commiting = false
-      // this.$router.push('/finish')
     }
   }
 }

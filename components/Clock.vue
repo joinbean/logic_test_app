@@ -10,16 +10,15 @@
 export default {
   data: () => ({
     interval: '',
-    time: 2100,
+    time: 120, // 2100,
     currentTime: ''
   }),
   created () {
-    this.$store.commit('createClockInterval')
-    // this.interval = setInterval(() => this.updateCurrentTime(), 1000)
+    this.interval = setInterval(() => this.updateCurrentTime(), 1000)
   },
   methods: {
     getCurrentTime () {
-      return this.$store.getters.getCurrentTime
+      return this.currentTime
     },
     updateCurrentTime () {
       let minutes = parseInt(this.time / 60, 10)
@@ -32,28 +31,46 @@ export default {
       this.$store.commit('setResultTime', this.time)
 
       if (--this.time < 0) {
-        this.cancel()
+        this.interval = ''
+        this.$store.commit('commitQuiz')
+        this.$store.commit('logout')
       }
     },
     cancel () {
-      clearInterval(this.interval)
-      this.quit()
     }
   }
 }
-// import { format } from 'date-fns'
-// const getCurrentTime = () => format(new Date(), 'mm:ss a')
 // export default {
 //   data: () => ({
-//     currentTime: getCurrentTime()
+//     interval: '',
+//     time: 2100,
+//     currentTime: ''
 //   }),
-//   methods: {
-//     updateCurrentTime () {
-//       this.currentTime = getCurrentTime()
-//     }
-//   },
 //   created () {
-//     setInterval(() => this.updateCurrentTime(), 1000)
+//     this.$store.commit('createClockInterval')
+//   },
+//   methods: {
+//     getCurrentTime () {
+//       return this.$store.getters.getCurrentTime
+//     },
+//     updateCurrentTime () {
+//       let minutes = parseInt(this.time / 60, 10)
+//       let seconds = parseInt(this.time % 60, 10)
+
+//       minutes = minutes < 10 ? '0' + minutes : minutes
+//       seconds = seconds < 10 ? '0' + seconds : seconds
+
+//       this.currentTime = minutes + ':' + seconds
+//       this.$store.commit('setResultTime', this.time)
+
+//       if (--this.time < 0) {
+//         this.cancel()
+//       }
+//     },
+//     cancel () {
+//       clearInterval(this.interval)
+//       this.quit()
+//     }
 //   }
 // }
 </script>
