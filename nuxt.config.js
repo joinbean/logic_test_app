@@ -1,7 +1,11 @@
 export default {
 
   env: {
-    baseUrl: '/logicQuiz/'
+    publicPath: '/logicQuiz/'
+  },
+
+  router: {
+    base: '/logicQuiz/'
   },
 
   // Target: https://go.nuxtjs.dev/config-target
