@@ -51,14 +51,14 @@
     float: left; /* Float the buttons side by side */
     margin-bottom: 30px;
     &:not(:nth-last-child(2)) {
-      border-right: none; /* Prevent double borders */
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-    }
-    &:nth-last-child(2) {
       border-left: none; /* Prevent double borders */
       border-bottom-left-radius: 0;
       border-top-left-radius: 0;
+    }
+    &:nth-last-child(2) {
+      border-right: none; /* Prevent double borders */
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
     }
     /* Clear floats (clearfix hack) */
     &:after {

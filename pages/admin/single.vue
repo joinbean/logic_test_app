@@ -10,6 +10,10 @@
         style="color:black"
       /> -->
     </div>
+    <div v-if="student">
+      <h3 class="profile-name">{{ student.name }}</h3>
+      <h3 class="percentage">Richtig gelöst {{ percentage }}%</h3>
+    </div>
     <div class="background-box single"></div>
     <div class="scroll-box single">
       <div v-if="student" class="block-section">
@@ -61,6 +65,20 @@ export default {
         }
       }
       return blocks
+    },
+    percentage () {
+      let right = 0
+      if (this.student.solutions !== null) {
+        for (let i = 0; i < this.student.solutions.length; i++) {
+          if (typeof this.student.answers[i] !== 'undefined' &&
+          this.student.answers[i].question_id === this.student.solutions[i].question_id &&
+          this.student.answers[i].answer === this.student.solutions[i].solution) {
+            right++
+          }
+        }
+        return Math.round(100 * right / this.student.solutions.length)
+      }
+      return 0
     }
   },
   methods: {
@@ -68,7 +86,7 @@ export default {
       this.$store.commit('setCurrentQuestion', questionId)
       this.$store.commit('setStudent', this.student)
       this.$store.commit('setQuestion', this.questionId)
-      this.$router.push('solution')
+      this.$router.push('/admin/solution')
     },
     back () {
       this.$router.back()

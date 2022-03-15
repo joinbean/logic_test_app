@@ -45,7 +45,7 @@ export default {
         this.$store.commit('setType', response.token_type)
         this.$store.commit('setUser', instance.email)
         this.$store.commit('setStatus', 'User')
-        this.$router.push('start')
+        this.$router.push('/start')
       } catch (error) {
         switch (error.response.status) {
           case 422:

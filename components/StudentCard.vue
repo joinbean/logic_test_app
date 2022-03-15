@@ -60,7 +60,7 @@ export default {
   methods: {
     goToSingle () {
       this.$store.commit('setStudent', this.student)
-      this.$router.push('single')
+      this.$router.push('/admin/single')
     }
   }
 }

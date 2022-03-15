@@ -22,7 +22,8 @@ export const state = () => ({
   student: null,
   questionId: null,
   adminQuiz: null,
-  currentQuestion: 5
+  currentQuestion: 5,
+  theme: false
 })
 
 export const mutations = {
@@ -140,6 +141,9 @@ export const mutations = {
   },
   setCurrentQuestion (state, curQuestion) {
     state.currentQuestion = curQuestion
+  },
+  setTheme (state, val) {
+    state.theme = val
   }
 }
 
@@ -160,5 +164,6 @@ export const getters = {
   getStudent: state => state.student,
   getQuestionId: state => state.questionId,
   getAdminQuiz: state => state.adminQuiz,
-  getCurrentQuestion: state => state.currentQuestion
+  getCurrentQuestion: state => state.currentQuestion,
+  getThemeVal: state => state.theme
 }

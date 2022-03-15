@@ -30,9 +30,10 @@
         </div>
       </div>
     </div>
-    <div v-if="$store.getters.getQuizMax == $store.getters.getQuizCur" class="go-on-button">
+    <!-- <div v-if="$store.getters.getQuizMax == $store.getters.getQuizCur" class="go-on-button"> -->
+    <div class="go-on-button">
       <button @click="quit()">
-        Beenden
+        Abschliessen
       </button>
     </div>
   </section>
