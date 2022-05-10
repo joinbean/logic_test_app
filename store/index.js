@@ -23,7 +23,7 @@ export const state = () => ({
   questionId: null,
   adminQuiz: null,
   currentQuestion: 5,
-  theme: false
+  theme: null
 })
 
 export const mutations = {
@@ -143,6 +143,7 @@ export const mutations = {
     state.currentQuestion = curQuestion
   },
   setTheme (state, val) {
+    console.log(val)
     state.theme = val
   }
 }

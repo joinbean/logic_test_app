@@ -18,6 +18,14 @@
   padding: 2.5% 5%;
 }
 
+.logo {
+  position: absolute;
+  width: 308px;
+  height: 219px;
+  left: 32px;
+  top: 19px;
+}
+
 .burger {
   button {
     background-color: transparent;
@@ -98,14 +106,47 @@
 // Register
 
 .register-section {
-  padding-top: 200px;
+  padding-top: 280px;
   .form {
     width: 450px;
-    margin-left: auto;
+    margin-left: 250px;
     margin-right: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    font-family: 'Object Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+    h3 {
+      font-family: 'Object Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 33px;
+      margin-bottom: 100px;
+    }
+    button {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      width: 96px;
+      height: 40px;
+      border-radius: 20px;
+      background: #AAD5D0;
+      align-self: end;
+      margin-top: 10px;
+    }
+    .label {
+      font-family: 'Object Sans';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 19px;
+    }
   }
 }
 
@@ -129,8 +170,8 @@
         position: absolute;
         height: 126px;
         width: 126px;
-        bottom: 56px;
-        right: 66px;
+        bottom: 53px;
+        right: 63px;
         // border: 5px solid black;
         .image-box {
           height: 100%;
@@ -208,20 +249,22 @@
     flex-direction: row;
     justify-content: end;
     button {
-      font-family: 'Oswald';
+      font-family: 'Roboto';
       font-style: normal;
-      font-weight: normal;
-      font-size: 50px;
-      line-height: 40px;
-      width: 360px;
-      height: 60px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+      width: 133px;
+      height: 40px;
       left: 923px;
       top: 850px;
 
       backdrop-filter: blur(4px);
       /* Note: backdrop-filter has minimal browser support */
 
-      border-radius: 15px;
+      border-radius: 20px;
+
+      margin-right: 25px;
     }
   }
 }
@@ -270,33 +313,32 @@
 
 // Start
 .text-section,.start {
-  padding-top: 0px;
+  padding-top: 120px;
+  padding-left: 175px;
   .content {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
     margin-left: 5%;
     h1 {
-      font-family: 'Oswald';
-      font-weight: 500;
-      font-size: 250px;
+      font-family: 'Object Sans';
       font-style: normal;
-      line-height: 370px;
-      margin: 0;
+      font-weight: 500;
+      font-size: 180px;
     }
     h4 {
-      font-family: Oswald;
+      font-family: 'Object Sans';
       font-style: normal;
-      font-weight: normal;
+      font-weight: 500;
       font-size: 36px;
-      line-height: 53px;
+      line-height: 37px;
     }
     p {
-      font-family: 'Roboto';
-      font-weight: 400;
+      font-family: 'Object Sans';
       font-style: normal;
+      font-weight: 400;
       font-size: 24px;
-      line-height: 28px;
+      line-height: 36px;
       margin: 0;
       &:last-child {
         padding-top: 30px;
@@ -307,14 +349,15 @@
     float: right;
     padding-right: 5%;
     button {
-      width: 200px;
-      height: 50px;
-      border-radius: 10px;
+      width: 133px;
+      height: 40px;
+      border-radius: 100px;
       padding: 0px;
-      font-family: 'Oswald';
-      font-weight: 400;
-      font-size: 32px;
+      font-family: 'Roboto';
       font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
       cursor: pointer;
     }
   }

@@ -32,9 +32,15 @@
     </div>
     <!-- <div v-if="$store.getters.getQuizMax == $store.getters.getQuizCur" class="go-on-button"> -->
     <div class="go-on-button">
-      <button @click="quit()">
+
+      <button v-if="this.$store.getters.getQuizMax == this.$store.getters.getQuizCur" @click="quit()">
         Abschliessen
       </button>
+
+      <button v-else @click="increment()">
+        Next
+      </button>
+
     </div>
   </section>
 </template>
@@ -112,6 +118,9 @@ export default {
       this.$store.commit('commitQuiz')
       this.$store.commit('cancelClockInterval')
       this.$store.commit('logout')
+    },
+    increment () {
+      this.$store.commit('increment')
     }
   }
 }

@@ -4,11 +4,21 @@
   .content {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     .single-view {
-      flex-grow: 1;
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 10%;
+      .points-list {
+        max-width: 400px;
+        font-family: Oswald;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 36px;
+        
+      }
       button {
         width: 150px;
         height: 50px;

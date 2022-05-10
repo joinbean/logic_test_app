@@ -1,5 +1,6 @@
 <template>
-  <div class="main quiz-page" :class="{'dark-theme': darkMode, 'light-theme': !darkMode}">
+  <div v-if="darkData != null" class="main quiz-page" :class="{'dark-theme': darkMode, 'light-theme': !darkMode}">
+    <div v-if="!isAdmin" class="logo"></div>
     <div class="navbar">
       <div class="btn-group">
       <button @click="changeTheme(false)">
@@ -27,6 +28,7 @@ export default {
   name: 'Default',
   data () {
     return {
+      darkData: null
     }
   },
   methods: {
@@ -34,9 +36,18 @@ export default {
       this.$store.commit('setTheme', val)
     }
   },
+  mounted () {
+    this.darkData = this.$store.getters.getThemeVal
+  },
   computed: {
     darkMode () {
-      return this.$store.getters.getThemeVal
+      if (this.$store.getters.getThemeVal != null) {
+        return this.$store.getters.getThemeVal
+      }
+      return this.darkData
+    },
+    isAdmin () {
+      return this.$route.name.includes('admin')
     }
   }
 }

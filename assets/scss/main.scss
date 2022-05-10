@@ -5,10 +5,13 @@
 @import "./admin.scss";
 .dark-theme {
   &.quiz-page {
-    background-image: url("../images/bkgr_blk.jpg");
+    background: linear-gradient(298.84deg, #1F1F1F 34.14%, #454545 98.72%);
   }
   &.start-page {
     background: linear-gradient(298.84deg, #1F1F1F 34.14%, #454545 98.72%);
+  }
+  .logo {
+    background-image: url("../images/twofold-AA-neg-rgb\ 1.png");
   }
   
   @import "./darkstyles.scss";
@@ -16,11 +19,13 @@
 }
 .light-theme {
   &.quiz-page {
-    background-image: url("../images/bkgr_wht.png");
-    background-size: 100% 100%;
+    background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);
   }
   &.start-page {
     background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);
+  }
+  .logo {
+    background-image: url("../images/twofold-AA-pos-rgb\ 1.png");
   }
 
   background: linear-gradient(298.84deg, #FFFFFF 34.14%, #DEDEDE 98.72%);

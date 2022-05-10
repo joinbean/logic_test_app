@@ -1,16 +1,17 @@
 <template>
   <section class="section register-section">
     <div class="form">
+      <h3>Bitte registrieren</h3>
       <b-field label="Name" v-show="!error">
         <b-input v-model="name" />
       </b-field>
       <b-field label="Name" message="Enter a name" type="is-danger" v-show="error">
         <b-input v-model="name" />
       </b-field>
-      <b-field label="Email" v-show="!error">
+      <b-field label="E-mail" v-show="!error">
         <b-input v-model="email" />
       </b-field>
-      <b-field label="Email" message="Enter valid and unique mail" type="is-danger" v-show="error">
+      <b-field label="E-mail" message="Enter valid and unique mail" type="is-danger" v-show="error">
         <b-input v-model="email" />
       </b-field>
       <b-button @click="register">
