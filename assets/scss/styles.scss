@@ -178,6 +178,7 @@
           width: 100%;
           img {
             height: 100%;
+            width: 100% !important;
           }
           .overlay {
             position: absolute;
@@ -209,13 +210,15 @@
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: start;
       .image-box {
         position: relative;
         height: 128px;
         width: 125px;
+        margin-bottom: 20px;
         img {
           height: 100%;
+          width: 100% !important;
         }
         .overlay {
           position: absolute;

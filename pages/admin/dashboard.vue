@@ -8,7 +8,7 @@
         </div>
       </div>
       <div v-else class="scroll-box dash">
-        <cube-spin></cube-spin>
+        <h1>loading...</h1>
       </div>
       <div class="single-view">
         <Points />
@@ -19,27 +19,31 @@
 </template>
 
 <script>
-import CubeSpin from 'vue-loading-spinner/components/Cube'
 export default {
   middleware: 'authenticated',
-  components: {
-      CubeSpin
-    },
   data: () => ({
     items: [],
-    laoded: false
+    loaded: false
   }),
   async mounted () {
-    this.laoded = false
+    this.loaded = false
     console.log(this.$store.getters.getToken, this.$store.getters.getType)
     this.$axios.setToken(this.$store.getters.getToken, this.$store.getters.getType, ['post', 'get'])
     // this.$axios.setToken('113|NO6f32QeGhabKkdkqDDK5dhteklnwAKV9agmwjQn', 'Bearer', ['post', 'get'])
-    const response = await this.$axios.$post('https://twofold.academy/logic/public/api/admin/quizzes', null)
+    let response
+    try {
+      response = await this.$axios.$post('https://twofold.academy/logic/public/api/admin/quizzes', null)
+      console.log('right request')
+    } catch (err) {
+      console.log('wrong request')
+      console.log(err)
+    }
 
     console.log(response.data)
+    console.log(this.loaded)
+    this.loaded = true
     this.items = response.data
     this.$store.commit('setStudent', null)
-    this.laoded = true
   },
   methods: {
     logout () {
