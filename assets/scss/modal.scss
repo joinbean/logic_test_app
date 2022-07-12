@@ -82,11 +82,11 @@
 }
 
 .btn-solo {
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: space-around;
   button {
     font-family: 'Oswald';
     font-style: normal;
@@ -120,7 +120,7 @@
 .modal-container {
   z-index: 9999;
   width: 641px;
-  height: 426px;
+  // height: 426px;
   margin: 0px auto;
   padding: 20px 20px;
   border-radius: 20px;

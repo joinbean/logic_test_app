@@ -23,7 +23,8 @@ export const state = () => ({
   questionId: null,
   adminQuiz: null,
   currentQuestion: 5,
-  theme: null
+  theme: null,
+  fullQuiz: null
 })
 
 export const mutations = {
@@ -145,6 +146,9 @@ export const mutations = {
   setTheme (state, val) {
     console.log(val)
     state.theme = val
+  },
+  setFullQuiz (state, quiz) {
+    state.fullQuiz = quiz
   }
 }
 
@@ -166,5 +170,6 @@ export const getters = {
   getQuestionId: state => state.questionId,
   getAdminQuiz: state => state.adminQuiz,
   getCurrentQuestion: state => state.currentQuestion,
-  getThemeVal: state => state.theme
+  getThemeVal: state => state.theme,
+  getMyQuiz: state => state.fullQuiz[state.quizCur]
 }
